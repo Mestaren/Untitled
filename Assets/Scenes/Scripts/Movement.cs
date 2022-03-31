@@ -6,9 +6,12 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float MoveSpeed = 6f;
+    float movementMultiplier = 10f;
 
     float Horizontalmove;
     float VerticalMove;
+
+    float rbDrag = 6f;
 
     Vector3 moveDirection;
 
@@ -25,6 +28,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         MyInput();
+        ControlDrag();
     }
 
     void MyInput()
@@ -35,6 +39,12 @@ public class Movement : MonoBehaviour
         moveDirection = transform.forward * VerticalMove + transform.right * Horizontalmove;
 
     }
+
+    void ControlDrag()
+    {
+        rb.drag = rbDrag;
+    }
+
     private void FixedUpdate()
     {
         MovePlayer();
@@ -42,6 +52,6 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
-        rb.AddForce(moveDirection.normalized * MoveSpeed, ForceMode.Acceleration);
+        rb.AddForce(moveDirection.normalized * movementMultiplier * MoveSpeed, ForceMode.Acceleration);
     }
 }
