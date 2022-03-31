@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void update()
+    private void Update()
     {
         MyInput();
     }
@@ -33,8 +33,8 @@ public class Movement : MonoBehaviour
         VerticalMove = Input.GetAxisRaw("Vertical");
 
         moveDirection = transform.forward * VerticalMove + transform.right * Horizontalmove;
-    }
 
+    }
     private void FixedUpdate()
     {
         MovePlayer();
