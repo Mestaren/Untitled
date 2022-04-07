@@ -2,31 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseRotate : MonoBehaviour
+public class mouserotate : MonoBehaviour
 {
-    
-    public float mouseSensetivity = 100f;
-    public Transform playerBody;
-    float Xrotation = 0f;
-    float Yrotation = 0f;
-
+    Vector2 rotation = Vector2.zero;
+    public float speed = 3;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensetivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensetivity;
-
-        Xrotation -= mouseY;
-        Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(Xrotation, Yrotation, 0);
-        playerBody.Rotate(Vector3.up * mouseX);
+        rotation.y += Input.GetAxis("Mouse X");
+        rotation.x += -Input.GetAxis("Mouse Y");
+        transform.eulerAngles = (Vector2)rotation * speed;
     }
 }
