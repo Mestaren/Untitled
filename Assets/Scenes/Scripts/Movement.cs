@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
-    bool grounded;
+    bool isGrounded;
 
 
     void Start()
@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
         ControlDrag();
         sprint();
         jump();
+
+        isGrounded = 
     }
 
     void MyInput()
@@ -49,7 +51,10 @@ public class Movement : MonoBehaviour
     void sprint()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
+         
             MoveSpeed = 24f;
+        
+            
     }
 
     void jump()
