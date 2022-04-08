@@ -13,9 +13,13 @@ public class Movement : MonoBehaviour
 
     float rbDrag = 6f;
 
+    float jumpHeight = 15f;
+
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    bool grounded;
 
 
     void Start()
@@ -29,6 +33,8 @@ public class Movement : MonoBehaviour
     {
         MyInput();
         ControlDrag();
+        sprint();
+        jump();
     }
 
     void MyInput()
@@ -38,6 +44,18 @@ public class Movement : MonoBehaviour
 
         moveDirection = transform.forward * VerticalMove + transform.right * Horizontalmove;
 
+    }
+
+    void sprint()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            MoveSpeed = 24f;
+    }
+
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 
     void ControlDrag()
