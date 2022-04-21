@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
         sprint();
         jump();
 
-        isGrounded = 
+         
     }
 
     void MyInput()
