@@ -36,7 +36,11 @@ public class Movement : MonoBehaviour
         sprint();
         jump();
 
+<<<<<<< Updated upstream
          
+=======
+        //isGrounded = 
+>>>>>>> Stashed changes
     }
 
     void MyInput()
