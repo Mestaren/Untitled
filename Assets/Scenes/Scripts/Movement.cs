@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
-    bool isGrounded;
+    
 
 
     void Start()
